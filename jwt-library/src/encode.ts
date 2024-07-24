@@ -34,17 +34,3 @@ export function encode_jwt(
 
   return `${encodedHeader}.${encodedPayload}.${encodedSignature}`;
 }
-
-const token = encode_jwt(
-  "MyJWTSecret2",
-  1003,
-  { name: "Tanu Chahal", age: 100 },
-  120
-);
-
-console.log(token);
-
-const { id, payload, expires_at } = decode_jwt("MyJWTSecret2", token);
-console.log(id);
-console.log(payload);
-console.log(expires_at);
