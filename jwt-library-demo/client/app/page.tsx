@@ -3,23 +3,21 @@ import {encode_jwt} from 'jwt-library';
 import React from 'react';
 
 const Home = () =>{
-    const secret = process.env.JWT_SECRET_KEY || "";
-    const token = encode_jwt(secret, 'userId12345', {name: "Tanu Chahal", role: "admin"}, 300);
-
+    const secret = process.env.NEXT_PUBLIC_JWT_SECRET_KEY || "";
     const handleClick = async () =>{
-      console.log("Testing JWT Token")
-        const response = await fetch('/api/protected',{
+    const token = encode_jwt(secret, 'userId12345', {name: "Tanu Chahal", role: "admin"}, 300);
+        const response = await fetch('/api/verify-token',{
+            method: "GET",
             headers:{
                 Authorization: `Bearer ${token}`,
             }
         });
-
         if(response.status === 401){
             alert('Unauthorized');
         }
         else{
             const data = await response.json();
-            alert(data.message)
+            alert(data.message);
         }
     };
 
