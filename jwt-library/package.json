@@ -1,6 +1,9 @@
 {
   "name": "@tanu-chahal/jwt-library",
   "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Encode, Decode & Validate JSON Web Token (JWTs)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts" ,

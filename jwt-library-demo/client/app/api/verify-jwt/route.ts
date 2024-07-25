@@ -1,20 +1,28 @@
 import { headers } from "next/headers";
-import { validate_jwt } from "@tanu-chahal/jwt-library";
+import { validate_jwt } from '@tanu-chahal/jwt-library';
 
-export function GET(req: Request) {
+export async function POST (req: Request) {
   const headersList = headers();
   const referer = headersList.get("authorization");
-  console.log(referer);
+  const token = referer ? referer.split(" ")[1] : "";
+  const { secret } = await req.json();
   try {
-    const token = referer ? referer.split(" ")[1] : "";
-    console.log(token);
-    console.log(process.env.JWT_SECRET_KEY);
-    console.log(validate_jwt(process.env.JWT_SECRET_KEY || "", token));
-    if (!token || !validate_jwt(process.env.JWT_SECRET_KEY || "", token)) {
+    if (!token || !secret) {
+        return Response.json(
+          {
+            success: false,
+            message: "Missing token or secret",
+          },
+          {
+            status: 400,
+          }
+        );
+      }
+    if (!validate_jwt(secret, token)) {
       return Response.json(
         {
           success: false,
-          message: "Unauthorized",
+          message: "Invalid token",
         },
         {
           status: 401,
@@ -24,7 +32,7 @@ export function GET(req: Request) {
     return Response.json(
       {
         success: true,
-        message: "Authorized",
+        message: "Valid Token",
       },
       {
         status: 200,
