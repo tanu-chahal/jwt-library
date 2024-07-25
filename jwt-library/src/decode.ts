@@ -9,7 +9,6 @@ export function decode_jwt(secret: string, jwt: string): {id: string, payload:ob
         throw new Error('Invalid JWT signature!');
     }
 
-    // const decodedPayload = JSON.parse(Buffer.from(payload, 'base64').toString('utf8'));
     const decodedPayload = JSON.parse(base64url.decode(payload));
     if(decodedPayload.exp && Math.floor(Date.now()/1000)>= decodedPayload.exp){
         throw new Error('JWT expired!')

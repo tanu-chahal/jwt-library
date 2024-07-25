@@ -1,5 +1,4 @@
 import * as crypto from "crypto";
-import { decode_jwt } from "./decode";
 import base64url from "base64url";
 
 export function encode_jwt(
@@ -21,13 +20,9 @@ export function encode_jwt(
     ...(ttl ? { exp: currentTimestamp + ttl } : {}),
   };
 
-  // const encodedHeader = Buffer.from(JSON.stringify(header)).toString('base64').replace(/=/g,'');
-  // const encodedPayload = Buffer.from(JSON.stringify(extendedPayload)).toString('base64').replace(/=/g,'');
-
   const encodedHeader = base64url.encode(JSON.stringify(header));
   const encodedPayload = base64url.encode(JSON.stringify(extendedPayload));
 
-  // const signature = crypto.createHmac('sha256', secret).update(`${encodedHeader}.${encodedPayload}`).digest('base64').replace(/=/g,'');
   const signature = crypto.createHmac("sha256", secret).update(`${encodedHeader}.${encodedPayload}`).digest("base64");
 
   const encodedSignature = base64url.fromBase64(signature);

@@ -1,0 +1,14 @@
+# Ignore dist/test directory
+dist/tests
+
+# Ignore other common directories or files that are not needed
+node_modules
+src
+jest.config.js
+*.ts
+!*.d.ts
+*.test.ts
+*.map
+.env
+.gitignore
+tsconfig.json
