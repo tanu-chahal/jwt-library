@@ -12,7 +12,7 @@ This library provides simple and efficient methods for working with JWTs in both
 
 ## Library Demo
 
-Check out the library's [demo application](https://jwt-library.vercel.app/).
+Check out the library's demo [application](https://jwt-library.vercel.app/) or https://jwt-library.vercel.app/.
 
 ## Installation
 

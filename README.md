@@ -6,7 +6,7 @@ This library provides simple and efficient methods for working with JWTs in both
 
 ![img](./jwt-library-demo/client/public/assets/Readme-Hero-Img.png)
 
-See Package [Demo Application](https://jwt-library.vercel.app/)
+See Package's Demo [Application](https://jwt-library.vercel.app/) or https://jwt-library.vercel.app/
 
 Use NPM [Package](https://www.npmjs.com/package/@tanu-chahal/jwt-library)
 
