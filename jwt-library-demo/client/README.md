@@ -31,4 +31,4 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deployed on Vercel
 
-Check out our deployed Next.js [application]().
+Check out our deployed Next.js [application](https://jwt-library.vercel.app/).
