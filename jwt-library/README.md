@@ -10,6 +10,10 @@ This library provides simple and efficient methods for working with JWTs in both
 - Decode JWT tokens
 - Validate JWT tokens
 
+## Library Demo
+
+Check out the library's [demo application]().
+
 ## Installation
 
 You can install the package via npm:
@@ -101,7 +105,12 @@ const isValid = validate_jwt(secret, token);
 console.log(isValid); // true or false
 ```
 
-### Author -Tanu Chahal
+## GitHub
+
+[Repository Link](https://github.com/tanu-chahal/jwt-library)
+
+
+### Author - Tanu Chahal
 
 [GitHub](https://github.com/tanu-chahal)
 

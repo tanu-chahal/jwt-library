@@ -22,7 +22,7 @@ export async function POST (req: Request) {
       return Response.json(
         {
           success: false,
-          message: "Invalid token",
+          message: "Unauthorized",
         },
         {
           status: 401,
@@ -32,7 +32,7 @@ export async function POST (req: Request) {
     return Response.json(
       {
         success: true,
-        message: "Valid Token",
+        message: "Authorized",
       },
       {
         status: 200,

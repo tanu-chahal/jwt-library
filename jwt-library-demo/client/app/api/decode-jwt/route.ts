@@ -29,12 +29,12 @@ export async function POST (req: Request) {
         status: 200,
       }
     );
-  } catch (e) {
+  } catch (e: any) {
     console.log(e.message)
     return Response.json(
       {
         success: false,
-        message: e.message || "Invalid secret or token",
+        message: e.message || "Unauthorized: Invalid secret or token",
       },
       {
         status: 401,
